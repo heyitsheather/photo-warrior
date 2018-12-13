@@ -21,7 +21,7 @@ class LoginPage extends Component {
     event.preventDefault();
             
     axios.post(
-      "http://localhost:5555/api/login",
+      process.env.REACT_SERVER_URL+"/api/login",
       this.state,
       { withCredentials: true }, // FORCE axios to send cookies across domains
     )
@@ -40,26 +40,25 @@ class LoginPage extends Component {
   render() {
     // check currentUser (received from App.js)
     if (this.props.currentUser) {
-      return <Redirect to="/DragAndDrop" />
+      return <Redirect to="/user-dashboard" />
     }
 
     return (
       <section className="LoginPage">
-        <h2>Log In</h2>
-
+        
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
-            Email:
+            
             <input value={this.state.email}
                 onChange={event => this.genericSync(event)}
-                type="email" name="email" placeholder="warrior@photo.com" />
+                type="email" name="email" placeholder="EXAMPLE@PHOTOWARRIOR.COM" />
           </label>
 
           <label>
-            Password:
+           
             <input value={this.state.originalPassword}
                 onChange={event => this.genericSync(event)}
-                type="password" name="originalPassword" placeholder="****" />
+                type="password" name="originalPassword" placeholder="PASSWORD" />
           </label>
 
           <button>Log In</button>

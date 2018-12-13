@@ -20,24 +20,6 @@ class DragAndDropZone extends Component {
     };
   }
 
-  // React will call "componentDidMount()" automatically when PhoneList loads
-  componentDidMount() {
-    // retrieve the info from the API as soon as the component loads
-    axios.get(
-      "http://localhost:5555/api/phones",
-      { withCredentials: true }, // FORCE axios to send cookies across domains
-    )
-      .then(response => {
-        console.log("Phone List", response.data);
-        // update our state array with the data from the API
-        this.setState({ phoneArray: response.data });
-      })
-      .catch(err => {
-        console.log("Phone List ERROR", err);
-        alert("Sorry! Something went wrong.");
-      });
-  }
-
   onImageDrop(files, nope) {
     console.log("halp", files, nope)
 
@@ -50,7 +32,7 @@ class DragAndDropZone extends Component {
     let upload = request.post(REACT_APP_CLOUDINARY_UPLOAD_URL)
                      .field('upload_preset', REACT_APP_CLOUDINARY_UPLOAD_PRESET)
                      .field('file', file)
-                     .field('folder', "photoWarrior");
+                     .field('folder', "user-" + this.props.currentUser.email);
 
     upload.end((err, response) => {
       if (err) {
@@ -58,13 +40,25 @@ class DragAndDropZone extends Component {
       }
 
       if (response.body.secure_url !== '') {
-        const { uploadedFiles } = this.state;
-        uploadedFiles[index] = {
-          file,
-          cloudinaryUrl: response.body.secure_url
-        };
-        this.setState({ uploadedFiles });
-      }
+        console.log("cloudinary----------", response.body)
+
+        axios.post(
+          process.env.REACT_APP_SERVER_URL + "/api/photos",
+          { url: response.body.secure_url, width: response.body.width, height: response.body.height },
+          { withCredentials: true }
+        )
+        .then(() => {
+          const { uploadedFiles } = this.state;
+          uploadedFiles[index] = {
+            file,
+            cloudinaryUrl: response.body.secure_url
+          };
+          this.setState({ uploadedFiles });
+        })
+        .catch(err => {
+          console.log("Upload Image ERROR", err);
+          alert("Sorry! Photos did not upload.");
+        })};
     });
   }
 
@@ -77,7 +71,9 @@ class DragAndDropZone extends Component {
             multiple={true}
             accept="image/*"
             >
-            <div>DROP IMAGES HERE.</div>
+            <div>DROP IMAGES HERE<br/>
+            OR<br/>
+            CLICK TO UPLOAD</div>
           </Dropzone>
         </div>
 

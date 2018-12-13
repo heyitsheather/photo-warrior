@@ -4,12 +4,16 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import './App.css';
-import HomePage from "./HomePage";
+import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound.js";
 import SignupPage from './components/SignupPage.js';
 import LoginPage from "./components/LoginPage.js";
-// import SelectedImages from "./SelectedImages";
+// import SelectedImages from "./components/SelectedImages";
 import DragAndDropZone from "./components/DragAndDrop";
+import SelectingGallery from "./components/PhotoSelecting";
+import UserDashboard from './components/UserDashboard';
+import ReadyForBattle from './components/ReadyForBattle';
+import ExportPhotos from './components/exportphotos';
 
 
 
@@ -70,9 +74,16 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/drag-and-drop" component={DragAndDropZone} />
-          {/* <Route path="/phone-details/:phoneId" component={PhoneDetails} /> */}
+          <Route path="/drag-and-drop" render={()=>{
+            return <DragAndDropZone currentUser={this.state.currentUser} />
+          }} />
+          <Route path="/choose-photos" component={SelectingGallery} />
+          <Route path="/user-dashboard" component={UserDashboard} />
+          <Route path="/prepare-for-battle" component={ReadyForBattle} />
+          <Route path="/export-photos" component={ExportPhotos} />
           {/* <Route path="/add-phone" component={AddPhone} /> */}
+
+
           <Route path="/signup-page" render={() =>
           <SignupPage currentUser={this.state.currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
