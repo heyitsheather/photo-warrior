@@ -14,6 +14,7 @@ import SelectingGallery from "./components/PhotoSelecting";
 import UserDashboard from './components/UserDashboard';
 import ReadyForBattle from './components/ReadyForBattle';
 import ExportPhotos from './components/exportphotos';
+import Downloader from './components/galleryDefeated';
 
 
 
@@ -81,7 +82,8 @@ class App extends Component {
           <Route path="/user-dashboard" component={UserDashboard} />
           <Route path="/prepare-for-battle" component={ReadyForBattle} />
           <Route path="/export-photos" component={ExportPhotos} />
-          {/* <Route path="/add-phone" component={AddPhone} /> */}
+          <Route path="/download-photos" component={Downloader} />
+          
 
 
           <Route path="/signup-page" render={() =>

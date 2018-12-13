@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-download-link": "^2.2.0",
     "react-dropzone": "^7.0.1",
     "react-paginate": "^6.0.0",
     "react-photo-gallery": "^6.2.2",
