@@ -85,7 +85,7 @@ class App extends Component {
           <Route path="/user-dashboard" component={UserDashboard} />
           <Route path="/prepare-for-battle" component={ReadyForBattle} />
           <Route path="/export-photos" component={ExportPhotos} />
-          <Route path="/download-photos" component={Downloader} />
+          <Route path="/gallery-defeated" component={Downloader} />
 
           
 

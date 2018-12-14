@@ -7,7 +7,7 @@ class ReadyForBattle extends Component {
     render() { 
         return ( 
             <div>
-                <h1>GALLERY NAME</h1>
+                {/* <h1>GALLERY NAME</h1> */}
                 <h1>READY FOR BATTLE?</h1>
                 <button>
                 <Link to="/drag-and-drop">UPLOAD A NEW GALLERY</Link>

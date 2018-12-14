@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -80,11 +80,9 @@ class DragAndDropZone extends Component {
         <div>
           {this.state.uploadedFiles.map(oneFile => {
             return oneFile.cloudinaryUrl === '' ? null :
-              <div key={oneFile.cloudinaryUrl}>
-                <p>{oneFile.file.name}</p>
-                <img src={oneFile.cloudinaryUrl} />
-              </div>
+              <Redirect to="/prepare-for-battle"/>
           })}
+          
         </div>
       </form>
     )

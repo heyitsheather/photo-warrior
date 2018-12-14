@@ -24,16 +24,16 @@ class UserDashboard extends Component {
           <Link to="/prepare-for-battle">
             <div id="photoDisplay">
                 {/* <img src="https://source.unsplash.com/epcsn8Ed8kY" alt="cute puppy" className="photos" id="samplePhoto1" /> */}
-                <h3>GALLERY NAME</h3>
+                <h3>PARIS GALLERY</h3>
                 </div>
                 </Link>
 
-                <Link to="/choose-photos">
+                {/* <Link to="/choose-photos">
             <div id="photoDisplay">
                 {/* <img src="https://source.unsplash.com/epcsn8Ed8kY" alt="cute puppy" className="photos" id="samplePhoto1" /> */}
-                <h3>GALLERY NAME</h3>
-                </div>
-                </Link>
+                {/* <h3>GALLERY NAME</h3>
+                </div> */}
+                {/* </Link> */} 
 
            
         

@@ -2,6 +2,8 @@ import React from "react";
 import Gallery from "react-photo-gallery";
 import axios from "axios";
 import SelectedImage from "./SelectedImage";
+import Downloader from "./galleryDefeated";
+import {Redirect} from "react-router-dom";
 
 
 class SelectingGallery extends React.Component {
@@ -11,7 +13,7 @@ class SelectingGallery extends React.Component {
     this.state = {
       selectAll: false ,
       // initial array is empty while we are waiting for the API results
-      photoArray: [],
+      photoArray: null,
     };
     this.selectPhoto = this.selectPhoto.bind(this);
     this.toggleSelect = this.toggleSelect.bind(this);
@@ -92,6 +94,32 @@ class SelectingGallery extends React.Component {
     });
   }
 
+  showGallery() {
+    const { photoArray } = this.state;
+
+    if (!photoArray) {
+      return (<h1>Loading...</h1>)
+    }
+    else if (photoArray.length === 0) {
+      return (
+        <div>
+          <Redirect to="/gallery-defeated"/>
+          
+        </div>
+      );
+    }
+    else {
+      return (
+        <Gallery
+          photos={photoArray}
+          onClick={this.selectPhoto}
+          ImageComponent={SelectedImage}
+          direction={"row"}
+        />
+      );
+    }
+  }
+
   render() {
     console.log (this.state)
     return (
@@ -103,13 +131,8 @@ class SelectingGallery extends React.Component {
         </p> */}
         <h1>WHICH OF THESE PHOTOS SHOULD SURVIVE?</h1>
         <button onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
-        
-        <Gallery
-          photos={this.state.photoArray}
-          onClick={this.selectPhoto}
-          ImageComponent={SelectedImage}
-          direction={"column"}
-        />
+
+        {this.showGallery()}
         
       </div>
     );
