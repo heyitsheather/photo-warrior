@@ -3,10 +3,6 @@ import Gallery from "react-photo-gallery";
 import axios from "axios";
 import SelectedImage from "./SelectedImage";
 
-const photos = [
-
-  
-];
 
 class SelectingGallery extends React.Component {
   constructor(props) {
@@ -21,47 +17,81 @@ class SelectingGallery extends React.Component {
     this.toggleSelect = this.toggleSelect.bind(this);
   }
     componentDidMount() {
-    axios.get(
-      process.env.REACT_APP_SERVER_URL + "/api/photos",
-      { withCredentials: true }, // FORCE axios to send cookies across domains
-    )
-      .then(response => {
-        console.log("Photo List", response.data);
+      this.getNext6();
+    }
 
-        const photoArray = response.data.map ((onePhoto)=>{
-          return{
-            src: onePhoto.url, 
-            width: onePhoto.width, 
-            height: onePhoto.height,
+    getNext6() {
+      axios.get(
+        process.env.REACT_APP_SERVER_URL + "/api/photos",
+        { withCredentials: true }, // FORCE axios to send cookies across domains
+      )
+        .then(response => {
+          console.log("Photo List", response.data);
+  
+          const photoArray = response.data.map ((onePhoto)=>{
+            return{
+              src: onePhoto.url, 
+              width: onePhoto.width, 
+              height: onePhoto.height,
+              _id: onePhoto._id,
+            }
           }
-        }
-          )
-        // update our state array with the data from the API
-        this.setState({ photoArray: photoArray });
-      })
-      .catch(err => {
-        console.log("Photo List ERROR", err);
-        alert("Sorry! Something went wrong.");
-      });
+            )
+          // update our state array with the data from the API
+          this.setState({ photoArray: photoArray });
+        })
+        .catch(err => {
+          console.log("Photo List ERROR", err);
+          alert("Sorry! Something went wrong.");
+        });
     }
 
-    submitSelectedPhoto(){
-console.log ( this.state)
-    }
+  
   
   selectPhoto(event, obj) {
     let photos = this.state.photoArray;
     photos[obj.index].selected = !photos[obj.index].selected;
-    console.log ("zzzzzzzzzzzzzzzzzzzzzzzž", this.state)
     this.setState({ photoArray: photos });
-    
+    console.log (this.state)
   }
+
   toggleSelect() {
     let photos = this.state.photoArray.map((photo, index) => {
       return { ...photo, selected: !this.state.selectAll };
     });
     this.setState({ photoArray: photos, selectAll: !this.state.selectAll });
   }
+
+  submitSelected() {
+    const selectedIds = [];
+    const seenIds = [];
+
+    let photos = this.state.photoArray;
+    photos.forEach(onePhoto => {
+      if (onePhoto.selected) {
+        selectedIds.push(onePhoto._id);
+      }
+      else {
+        seenIds.push(onePhoto._id);
+      }
+    });
+
+    console.log("submitting!!", { selectedIds, seenIds });
+    axios.put(
+      process.env.REACT_APP_SERVER_URL + "/api/photos",
+      { selectedIds, seenIds },
+      { withCredentials: true }, // FORCE axios to send cookies across domains
+    )
+    .then(response => {
+      alert("Submission successful!");
+      this.getNext6();
+    })
+    .catch(err => {
+      console.log("Photo SUBMIT ERROR", err);
+      alert("Sorry! Something went wrong.");
+    });
+  }
+
   render() {
     console.log (this.state)
     return (
@@ -72,9 +102,8 @@ console.log ( this.state)
           </button>
         </p> */}
         <h1>WHICH OF THESE PHOTOS SHOULD SURVIVE?</h1>
-        <button onSubmit={() => this.submitSelectedPhoto(
-          
-          )}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
+        <button onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
+        
         <Gallery
           photos={this.state.photoArray}
           onClick={this.selectPhoto}

@@ -33,7 +33,7 @@ class App extends Component {
     // React doesn't know at the start if we are logged-in or not
     // (but we can ask the server if we are through an API request)
     axios.get(
-      "http://localhost:5555/api/checkuser",
+      process.env.REACT_APP_SERVER_URL + "/api/checkuser",
       { withCredentials: true }, // FORCE axios to send cookies across domains
     )
     .then(response => {
@@ -55,7 +55,7 @@ class App extends Component {
 
   logoutClick() {
     axios.delete(
-      "http://localhost:5555/api/logout",
+      process.env.REACT_APP_SERVER_URL + "/api/logout",
       { withCredentials: true }, // FORCE axios to send cookies across domains
     )
     .then(() => {
@@ -74,7 +74,10 @@ class App extends Component {
         
 
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" render={() =>
+            <HomePage currentUser={this.state.currentUser}
+              onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+          } />
           <Route path="/drag-and-drop" render={()=>{
             return <DragAndDropZone currentUser={this.state.currentUser} />
           }} />
@@ -83,6 +86,7 @@ class App extends Component {
           <Route path="/prepare-for-battle" component={ReadyForBattle} />
           <Route path="/export-photos" component={ExportPhotos} />
           <Route path="/download-photos" component={Downloader} />
+
           
 
 

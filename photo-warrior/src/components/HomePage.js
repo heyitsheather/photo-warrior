@@ -7,7 +7,8 @@ class HomePage extends Component {
     return (
       <header className="App-header">
         <h1>PHOTO WARRIOR</h1>
-        <LoginPage />
+        <LoginPage currentUser={this.props.currentUser}
+                onUserChange={this.props.onUserChange} />
         <p><NavLink to="/signup-page">Not a warrior yet?  SIGN UP.</NavLink></p>
           
       </header>
