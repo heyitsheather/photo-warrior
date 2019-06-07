@@ -69,8 +69,7 @@ class DragAndDropZone extends Component {
           <Dropzone
             onDrop={this.onImageDrop.bind(this)}
             multiple={true}
-            accept="image/*"
-            >
+            accept="image/*">
             <div>DROP IMAGES HERE<br/>
             OR<br/>
             CLICK TO UPLOAD</div>

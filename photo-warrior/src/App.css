@@ -1,14 +1,12 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
-  background-image: url("/images/background.jpg");
+  background-color: #282828;
+  position: relative;
+  padding: 3rem 1.5rem; 
+  display: block;
+  font-family: "GT Eesti Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+
+  /* background-image: url("/images/background.jpg");
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,10 +14,71 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 3rem 1.5rem;
+    padding-top: 3rem;
+    padding-right: 1.5rem;
+    padding-bottom: 3rem;
+    padding-left: 1.5rem; */
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  display: block;
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: inherit;
+  align-items: center;
+}
+
+.columns{
+  display: flex;
+  flex: none;
+  padding: 0.75rem;
+  align-items: center;
+  margin-bottom: -0.75rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  margin-top: -0.75rem;
+  color: #998DA0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.left-column{
+  align-items: center;
+  width: 50%;
+  display: block;
+  padding: 0.75rem;
+ 
+}
+
+.title{
+  font-size: 3.625rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.125;
+}
+
+.subtitle{
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.buttons-grouped{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.right-column {
+width: 50%;
+padding: 0.75rem;
+display: flex;
+align-items: center;
+max-width: 600px;
 }
 
 
@@ -27,12 +86,53 @@
 body {
   margin: 0;
   padding: 0;
-	font-family: sans-serif;
 	background-color: #282828;
-	color: white;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 
 }
 
+.button.is-medium {
+  font-size: 1.25rem;
+}
+
+.button.is-primary {
+  background-color: #8E51C7;
+  border-color: transparent;
+  color: #fff;
+  margin-right: 0.75rem;
+}
+
+.button.is-light {
+  background-color: whitesmoke;
+  border-color: transparent;
+  color: #363636;
+}
+.button{
+    height: 2.375em;
+    border-width: 2px;
+    padding-top: calc(0.375em - 2px);
+    padding-bottom: calc(0.375em - 2px);
+    padding-left: calc(0.875em - 2px);
+    padding-right: calc(0.875em - 2px);
+    font-weight: 500;
+    transition-duration: 86ms;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    display: inline-flex;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+
+
+}
 /* 
 .button {
   border: 2px solid #fff;

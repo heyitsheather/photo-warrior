@@ -12,7 +12,6 @@ class SelectingGallery extends React.Component {
 
     this.state = {
       selectAll: false ,
-      // initial array is empty while we are waiting for the API results
       photoArray: null,
     };
     this.selectPhoto = this.selectPhoto.bind(this);
@@ -53,7 +52,7 @@ class SelectingGallery extends React.Component {
   selectPhoto(event, obj) {
     let photos = this.state.photoArray;
     photos[obj.index].selected = !photos[obj.index].selected;
-    this.setState({ photoArray: photos });
+    this.setState({ photoArray: obj });
     console.log (this.state)
   }
 
@@ -122,13 +121,16 @@ class SelectingGallery extends React.Component {
 
   render() {
     console.log (this.state)
+    function columns(containerWidth) {
+      let columns = 1;
+      if (containerWidth >= 500) columns = 2;
+      if (containerWidth >= 900) columns = 3;
+      if (containerWidth >= 1500) columns = 4;
+      return columns;
+    }
+    
     return (
       <div>
-        {/* <p>
-          <button className="toggle-select" onClick={this.toggleSelect}>
-            toggle select all
-          </button>
-        </p> */}
         <h1>WHICH OF THESE PHOTOS SHOULD SURVIVE?</h1>
         <button onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
 
