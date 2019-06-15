@@ -8,6 +8,7 @@
     "react-dom": "^16.6.3",
     "react-download-link": "^2.2.0",
     "react-dropzone": "^7.0.1",
+    "react-glitch-effect": "^1.0.4",
     "react-paginate": "^6.0.0",
     "react-photo-gallery": "^6.2.2",
     "react-router-dom": "^4.3.1",

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import GlitchEffect from 'react-glitch-effect';
 import { Switch, Route, NavLink } from "react-router-dom";
 import LoginPage from "./LoginPage";
+
 
 class HomePage extends Component {
   render() {
@@ -9,29 +11,38 @@ class HomePage extends Component {
     <section class="container">
     <div class= "columns">
       <div class="left-column">
-        <h1 class="title">A photo culling app for photographers</h1>
+     
+        <img src="images/glitchtitle.gif" alt="warrior"/>
+       
         <h2 class= "subtitle">Awaken the inner warrior and slay your galleries.
         Photo culling has never easier.
         </h2>
-        <div class="buttons-grouped"> 
-        <div class="control">
-        <a class="button is-primary is-medium" href="/signup-page">Sign Up?</a> 
+        <div class="button-group" > 
+        
+        <div >
+       
+        <a href="/login-page"><button class="buttons">LOG IN </button></a>
            </div> 
         <div class="control">
-        <a class="button is-light is-medium" href="/login-page">Login</a>
-           </div> 
+      
+        <a href="/signup-page"><button class="buttons">SIGN UP </button></a>
+       
+      </div> 
            </div>
            </div>
       {/* <hr class="spacer is-1-5"/> */}
       <div class= "right-column">
-        <img src="images/pwlogo.png" alt="logo"/>   
+      < GlitchEffect onHover={true}>
+        <img src="images/pwlogowhite.png" alt="logo"/>  
+        </GlitchEffect> 
         </div>
  
         {/* <LoginPage currentUser={this.props.currentUser}
                 onUserChange={this.props.onUserChange} />
         <p><NavLink to="/signup-page">Not a warrior yet?  SIGN UP.</NavLink></p> */}
       </div>
-      </section>   
+      </section>  
+      
       </header>
     );
   }
