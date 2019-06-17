@@ -14,71 +14,30 @@
   background-size: cover;
 }
 
-.container {
-  display: block;
-  width: 960px;
-  margin: 0 auto;
-  position: relative;
-  box-sizing: inherit;
-  align-items: center;
-}
-
-.columns{
+.landing{
   display: flex;
-  flex: none;
-  padding: 0.75rem;
+  height: 1000px;
   align-items: center;
-  margin-bottom: -0.75rem;
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-  margin-top: -0.75rem;
-  color: white;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.left-column{
+.warrior{
+  display: flex;
+  height: 1000px;
+  margin-top: -450px;
+  margin-left: 40px; 
   align-items: center;
-  width: 50%;
-  display: block;
-  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
  
+  
 }
-
-.title{
-  height:200px;
-  /* font-size: 3.625rem;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  line-height: 1.125; */
-}
-
-.subtitle{
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-  line-height: 1.25;
-}
-
-.buttons-grouped{
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 0.75rem;
-}
-
-.right-column {
-width: 50%;
-padding: 0.75rem;
-display: flex;
-align-items: center;
-max-width: 600px;
-}
-
-/* .warrior{
-  height:250px;
-} */
 
 .buttons{
   color:white;
@@ -91,6 +50,8 @@ max-width: 600px;
 
 .button-group{
   display: flex;
+  margin-top: -400px;
+  padding-bottom: 50px;
 }
 
 .control{
