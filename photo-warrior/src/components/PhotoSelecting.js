@@ -130,9 +130,9 @@ class SelectingGallery extends React.Component {
     }
     
     return (
-      <div>
+      <div class="App-header">
         <h1>WHICH OF THESE PHOTOS SHOULD SURVIVE?</h1>
-        <button onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
+        <button class="buttons" onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
 
         {this.showGallery()}
         

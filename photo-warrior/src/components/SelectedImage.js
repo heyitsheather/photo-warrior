@@ -65,6 +65,7 @@ const SelectedImage = ({
     >
       <Checkmark selected={photo.selected ? true : false} />
       <img
+      alt="selector"
         style={
           photo.selected
             ? { ...imgStyle, ...selectedImgStyle }

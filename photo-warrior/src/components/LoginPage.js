@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+// import { form } from 'react-bootstrap';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -44,25 +45,28 @@ class LoginPage extends Component {
     }
 
     return (
-      <section className="LoginPage">
+      <section className="App-header">
+        <h1>ACCOUNT LOGIN</h1>
+        <div class="loginWrap">
         
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
             
-            <input value={this.state.email}
+            <input class="input" value={this.state.email}
                 onChange={event => this.genericSync(event)}
-                type="email" name="email" placeholder="EXAMPLE@PHOTOWARRIOR.COM" />
+                type="email" name="email" placeholder="EMAIL@GMAIL.COM" />
           </label>
 
           <label>
            
-            <input value={this.state.originalPassword}
+            <input class="input" value={this.state.originalPassword}
                 onChange={event => this.genericSync(event)}
                 type="password" name="originalPassword" placeholder="PASSWORD" />
           </label>
 
-          <button>Log In</button>
+          <button class="buttons">Log In</button>
         </form>
+        </div>
       </section>
     );
   }

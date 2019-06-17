@@ -64,15 +64,19 @@ class DragAndDropZone extends Component {
 
   render() {
     return (
+      <section className="App-header">
+
+      <h1>UPLOAD GALLERY</h1>
+
       <form>
-        <div className="FileUpload">
+        <div >
           <Dropzone
+            class="drop-zone"
             onDrop={this.onImageDrop.bind(this)}
             multiple={true}
             accept="image/*">
-            <div>DROP IMAGES HERE<br/>
-            OR<br/>
-            CLICK TO UPLOAD</div>
+            <img class="drag-drop-img" src="/images/blue-drag-and-drop.png" alt="drag and drop"/>
+            <div class="drop-images-here">DROP IMAGES HERE</div>
           </Dropzone>
         </div>
 
@@ -84,6 +88,7 @@ class DragAndDropZone extends Component {
           
         </div>
       </form>
+      </section>
     )
   }
 }

@@ -6,15 +6,14 @@ class ReadyForBattle extends Component {
     
     render() { 
         return ( 
-            <div>
+            <div class="App-header">
                 {/* <h1>GALLERY NAME</h1> */}
                 <h1>READY FOR BATTLE?</h1>
-                <button>
-                <Link to="/drag-and-drop">UPLOAD A NEW GALLERY</Link>
-                </button>
-                <button>
-                <Link to="/choose-photos">BRING IT ON</Link>
-                </button>
+                <div class="buttons-grouped">
+                <Link to="/drag-and-drop"><button class="buttons">UPLOAD A NEW GALLERY </button></Link>
+                <div class="control"></div>
+                <Link to="/choose-photos"><button class="buttons">BRING IT ON</button></Link>
+                </div>
             
             
             

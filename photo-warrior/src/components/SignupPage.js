@@ -52,33 +52,37 @@ class SignupPage extends Component {
     }
 
     return (
-      <section className="SignupPage">
-        <h2>Sign Up</h2>
-
+      <section className="App-header">
+        <h1>SIGN UP</h1>
+        {/* <div class="loginWrap"> */}
+        
         <form onSubmit={event => this.handleSubmit(event)}>
+        <div class="loginWrap">
           <label>
             Full Name:
-            <input value={this.state.fullName}
+            <input class="input" value={this.state.fullName}
                 onChange={event => this.genericSync(event)}
                 type="text" name="fullName" placeholder="Rey" />
           </label>
 
           <label>
             Email:
-            <input value={this.state.email}
+            <input class="input" value={this.state.email}
                 onChange={event => this.genericSync(event)}
                 type="email" name="email" placeholder="rey@jedi.com" />
           </label>
 
           <label>
             Password:
-            <input value={this.state.originalPassword}
+            <input class="input" value={this.state.originalPassword}
                 onChange={event => this.genericSync(event)}
                 type="password" name="originalPassword" placeholder="****" />
           </label>
-
-          <button>Sign Up</button>
+          </div>
+          <button class="buttons">Sign Up</button>
+         
         </form>
+       
       </section>
     );
   }

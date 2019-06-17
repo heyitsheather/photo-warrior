@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
-import DragAndDropZone from './DragAndDrop';
+// import DragAndDropZone from './DragAndDrop';
 
 
 
@@ -9,14 +9,13 @@ class UserDashboard extends Component {
 
     render() { 
         return ( 
-            <div>
-        
+            <div class="App-header">
+         <button>LOGOUT</button>
             <h1>WELCOME WARRIOR</h1>
-            <button>LOGOUT</button>
             
-            <button>
-            <Link to="/drag-and-drop">UPLOAD A NEW GALLERY</Link>
-            </button>
+            <Link to="/drag-and-drop">
+            <button class="buttons">UPLOAD A NEW GALLERY</button>
+            </Link>
 
             <h2>YOUR GALLERIES:</h2>
 
