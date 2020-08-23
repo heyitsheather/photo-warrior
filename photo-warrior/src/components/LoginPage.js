@@ -48,7 +48,7 @@ class LoginPage extends Component {
       <section className="App-header">
         <h1>ACCOUNT LOGIN</h1>
         <div class="loginWrap">
-        
+        <div>
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
             
@@ -66,6 +66,7 @@ class LoginPage extends Component {
 
           <button class="buttons">Log In</button>
         </form>
+        </div>
         </div>
       </section>
     );
