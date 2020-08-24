@@ -4,6 +4,7 @@ import React, { Component } from "react";
 // import LoginPage from "./LoginPage";
 
 
+
 class HomePage extends Component {
   render() {
     return (
@@ -16,11 +17,11 @@ class HomePage extends Component {
 
         <div class="button-group" > 
         <div >
-        <a href="/login-page"><button class="buttons">LOG IN </button></a>
+        <a href="/login-page"><button class="waves-effect waves-light btn">LOG IN </button></a>
            </div> 
 
         <div class="control"/>
-        <a href="/signup-page"><button class="buttons">SIGN UP </button></a>
+        <a href="/signup-page"><button class="waves-effect waves-light btn">SIGN UP </button></a>
       
       </div>
       </header>

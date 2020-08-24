@@ -1,8 +1,7 @@
 
 import React, { Component } from 'react';
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
-
 import './App.css';
 import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound.js";
@@ -15,6 +14,8 @@ import UserDashboard from './components/UserDashboard';
 import ReadyForBattle from './components/ReadyForBattle';
 import ExportPhotos from './components/exportphotos';
 import Downloader from './components/galleryDefeated';
+import 'materialize-css/dist/css/materialize.min.css';
+
 
 
 
@@ -43,7 +44,7 @@ class App extends Component {
     })
     .catch(err => {
       console.log("Check User ERROR", err);
-      alert("Sorry! Something went wrong.");
+      // alert("Sorry! Something went wrong.");
     });
   }
 
@@ -64,15 +65,14 @@ class App extends Component {
     })
     .catch(err => {
       console.log("Logout ERROR", err);
-      alert("Sorry! Something went wrong.");
+      // alert("Sorry! Something went wrong.");
     });
   }
 
   render() {
     return (
       <div className="App">
-        
-
+       
         <Switch>
           <Route exact path="/" render={() =>
             <HomePage currentUser={this.state.currentUser}
@@ -86,10 +86,6 @@ class App extends Component {
           <Route path="/prepare-for-battle" component={ReadyForBattle} />
           <Route path="/export-photos" component={ExportPhotos} />
           <Route path="/gallery-defeated" component={Downloader} />
-
-          
-
-
           <Route path="/signup-page" render={() =>
           <SignupPage currentUser={this.state.currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)} />

@@ -1,7 +1,27 @@
 
+.App {
+  text-align: center;
+  background-color: black;
+  color:white;
+  
+}
 
+.navbar{
+  background-color: gray;
+}
+
+ .dashboard {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-size: auto;
+
+} 
 .App-header {
-  background: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, .75) ), url('/images/glitchbackground.jpg');
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +29,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-size: cover;
+  background-size: auto;
 }
 
 .landing{
@@ -20,7 +40,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  background-color: black;
 }
 
 .warrior{
@@ -37,14 +57,15 @@
   
 }
 
-.buttons{
+/* .buttons{
   color:white;
   border-style: solid;
   border-color: white;
-  border-width: 3px;
+  border-width: 1px;
   background-color:black;
+  border-radius: 10%;
   height: 60px;  
-}
+} */
 
 .button-group{
   display: flex;
@@ -93,7 +114,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #666666;
+  /* color: #666666;  */
 }
 .fail-warrior{
   height: 200px;

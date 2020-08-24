@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Nav, NavItem } from "react-materialize";
 // import DragAndDropZone from './DragAndDrop';
 
 
@@ -27,20 +28,43 @@ class UserDashboard extends Component {
   
     render() { 
         return ( 
-            <div class="App-header">
 
-         <div class="buttons">
+          
+            <div className="dashboard"> 
+              <nav className>
+                <div className="container">
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li> 
+                    <Link to="/" onClick={() => this.logoutClick()}>LOG OUT
+      </Link> 
+      </li>
+                    <li> 
+                    <Link to="/drag-and-drop"> 
+            UPLOAD A NEW GALLERY
+            </Link>
+             </li>
+                  </ul>
+                  </div>
+                  </nav>
+                  
+              
         
-        <Link to="/">
-      <button  onClick={() => this.logoutClick()}>LOG OUT</button>
-      </Link>
+         {/* <Link to="/">
+      <button onClick={() => this.logoutClick()}>LOG OUT</button>
+      </Link> */}
+     
+      {/* <Link to="/drag-and-drop"> 
+            <button>UPLOAD A NEW GALLERY</button> 
+            </Link> */}
+            
 
-      </div>
+
+     
             <h1>WELCOME WARRIOR</h1>
             
-            <Link to="/drag-and-drop">
+            {/* <Link to="/drag-and-drop">
             <button class="buttons">UPLOAD A NEW GALLERY</button>
-            </Link>
+            </Link> */}
 
             <h2>YOUR GALLERIES:</h2>
 

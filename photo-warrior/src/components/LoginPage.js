@@ -64,7 +64,7 @@ class LoginPage extends Component {
                 type="password" name="originalPassword" placeholder="PASSWORD" />
           </label>
 
-          <button class="buttons">Log In</button>
+          <button class="waves-effect waves-light btn">Log In</button>
         </form>
         </div>
         </div>

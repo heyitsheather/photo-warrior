@@ -33,7 +33,7 @@ class SignupPage extends Component {
       })
       .catch(err => {
         console.log("Signup Page ERROR", err);
-        alert("Sorry! Something went wrong.");
+        // alert("Sorry! Something went wrong.");
       });
   }
 
@@ -79,7 +79,7 @@ class SignupPage extends Component {
                 type="password" name="originalPassword" placeholder="****" />
           </label>
           </div>
-          <button class="buttons">Sign Up</button>
+          <button class="waves-effect waves-light btn">Sign Up</button>
          
         </form>
        

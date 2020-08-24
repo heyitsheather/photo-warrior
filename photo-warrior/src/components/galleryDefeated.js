@@ -10,7 +10,7 @@ class Downloader extends React.Component {
   render() {
 
     return (
-      <div class="App-header">
+      <div class="App">
        
           <h1>CONGRATULATIONS!</h1>
           <h1>YOU HAVE DEFEATED THE GALLERY!</h1>

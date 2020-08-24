@@ -57,7 +57,7 @@ class DragAndDropZone extends Component {
         })
         .catch(err => {
           console.log("Upload Image ERROR", err);
-          alert("Sorry! Photos did not upload.");
+          // alert("Sorry! Photos did not upload.");
         })};
     });
   }

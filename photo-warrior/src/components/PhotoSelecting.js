@@ -2,7 +2,7 @@ import React from "react";
 import Gallery from "react-photo-gallery";
 import axios from "axios";
 import SelectedImage from "./SelectedImage";
-import Downloader from "./galleryDefeated";
+// import Downloader from "./galleryDefeated";
 import {Redirect} from "react-router-dom";
 
 
@@ -43,7 +43,7 @@ class SelectingGallery extends React.Component {
         })
         .catch(err => {
           console.log("Photo List ERROR", err);
-          alert("Sorry! Something went wrong.");
+          // alert("Sorry! Something went wrong.");
         });
     }
 
@@ -89,7 +89,7 @@ class SelectingGallery extends React.Component {
     })
     .catch(err => {
       console.log("Photo SUBMIT ERROR", err);
-      alert("Sorry! Something went wrong.");
+      // alert("Sorry! Something went wrong.");
     });
   }
 
@@ -132,7 +132,7 @@ class SelectingGallery extends React.Component {
     return (
       <div class="App-header">
         <h1>WHICH OF THESE PHOTOS SHOULD SURVIVE?</h1>
-        <button class="buttons" onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
+        <button class="waves-effect waves-light btn" onClick={() => this.submitSelected()}>SUBMIT SELECTIONS AND CONTINUE TO NEXT BATCH</button>
 
         {this.showGallery()}
         
